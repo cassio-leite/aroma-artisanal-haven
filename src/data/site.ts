@@ -240,4 +240,5 @@ export const navLinks = [
   { to: "/cardapio", label: "Cardápio" },
   { to: "/categorias", label: "Categorias" },
   { to: "/graos", label: "Grãos" },
+  { to: "/sobre", label: "Sobre" },
 ] as const;
