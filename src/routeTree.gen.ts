@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as GraosRouteImport } from './routes/graos'
+import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CardapioRouteImport } from './routes/cardapio'
 import { Route as IndexRouteImport } from './routes/index'
@@ -26,6 +27,11 @@ const SobreRoute = SobreRouteImport.update({
 const GraosRoute = GraosRouteImport.update({
   id: '/graos',
   path: '/graos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CategoriasRoute = CategoriasRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
+  '/contato': typeof ContatoRoute
   '/graos': typeof GraosRouteWithChildren
   '/sobre': typeof SobreRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
+  '/contato': typeof ContatoRoute
   '/graos': typeof GraosRouteWithChildren
   '/sobre': typeof SobreRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
+  '/contato': typeof ContatoRoute
   '/graos': typeof GraosRouteWithChildren
   '/sobre': typeof SobreRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/cardapio'
     | '/categorias'
+    | '/contato'
     | '/graos'
     | '/sobre'
     | '/categorias/$slug'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/cardapio'
     | '/categorias'
+    | '/contato'
     | '/graos'
     | '/sobre'
     | '/categorias/$slug'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/cardapio'
     | '/categorias'
+    | '/contato'
     | '/graos'
     | '/sobre'
     | '/categorias/$slug'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CardapioRoute: typeof CardapioRoute
   CategoriasRoute: typeof CategoriasRouteWithChildren
+  ContatoRoute: typeof ContatoRoute
   GraosRoute: typeof GraosRouteWithChildren
   SobreRoute: typeof SobreRoute
   ProdutoSlugRoute: typeof ProdutoSlugRoute
@@ -146,6 +159,13 @@ declare module '@tanstack/react-router' {
       path: '/graos'
       fullPath: '/graos'
       preLoaderRoute: typeof GraosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/categorias': {
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CardapioRoute: CardapioRoute,
   CategoriasRoute: CategoriasRouteWithChildren,
+  ContatoRoute: ContatoRoute,
   GraosRoute: GraosRouteWithChildren,
   SobreRoute: SobreRoute,
   ProdutoSlugRoute: ProdutoSlugRoute,
