@@ -14,6 +14,7 @@ import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CardapioRouteImport } from './routes/cardapio'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdutoSlugRouteImport } from './routes/produto.$slug'
+import { Route as GraosSlugRouteImport } from './routes/graos.$slug'
 import { Route as CategoriasSlugRouteImport } from './routes/categorias.$slug'
 
 const GraosRoute = GraosRouteImport.update({
@@ -41,6 +42,11 @@ const ProdutoSlugRoute = ProdutoSlugRouteImport.update({
   path: '/produto/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GraosSlugRoute = GraosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GraosRoute,
+} as any)
 const CategoriasSlugRoute = CategoriasSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -51,16 +57,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
-  '/graos': typeof GraosRoute
+  '/graos': typeof GraosRouteWithChildren
   '/categorias/$slug': typeof CategoriasSlugRoute
+  '/graos/$slug': typeof GraosSlugRoute
   '/produto/$slug': typeof ProdutoSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
-  '/graos': typeof GraosRoute
+  '/graos': typeof GraosRouteWithChildren
   '/categorias/$slug': typeof CategoriasSlugRoute
+  '/graos/$slug': typeof GraosSlugRoute
   '/produto/$slug': typeof ProdutoSlugRoute
 }
 export interface FileRoutesById {
@@ -68,8 +76,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
-  '/graos': typeof GraosRoute
+  '/graos': typeof GraosRouteWithChildren
   '/categorias/$slug': typeof CategoriasSlugRoute
+  '/graos/$slug': typeof GraosSlugRoute
   '/produto/$slug': typeof ProdutoSlugRoute
 }
 export interface FileRouteTypes {
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/graos'
     | '/categorias/$slug'
+    | '/graos/$slug'
     | '/produto/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/graos'
     | '/categorias/$slug'
+    | '/graos/$slug'
     | '/produto/$slug'
   id:
     | '__root__'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/categorias'
     | '/graos'
     | '/categorias/$slug'
+    | '/graos/$slug'
     | '/produto/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -103,7 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CardapioRoute: typeof CardapioRoute
   CategoriasRoute: typeof CategoriasRouteWithChildren
-  GraosRoute: typeof GraosRoute
+  GraosRoute: typeof GraosRouteWithChildren
   ProdutoSlugRoute: typeof ProdutoSlugRoute
 }
 
@@ -144,6 +156,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutoSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/graos/$slug': {
+      id: '/graos/$slug'
+      path: '/$slug'
+      fullPath: '/graos/$slug'
+      preLoaderRoute: typeof GraosSlugRouteImport
+      parentRoute: typeof GraosRoute
+    }
     '/categorias/$slug': {
       id: '/categorias/$slug'
       path: '/$slug'
@@ -166,11 +185,21 @@ const CategoriasRouteWithChildren = CategoriasRoute._addFileChildren(
   CategoriasRouteChildren,
 )
 
+interface GraosRouteChildren {
+  GraosSlugRoute: typeof GraosSlugRoute
+}
+
+const GraosRouteChildren: GraosRouteChildren = {
+  GraosSlugRoute: GraosSlugRoute,
+}
+
+const GraosRouteWithChildren = GraosRoute._addFileChildren(GraosRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CardapioRoute: CardapioRoute,
   CategoriasRoute: CategoriasRouteWithChildren,
-  GraosRoute: GraosRoute,
+  GraosRoute: GraosRouteWithChildren,
   ProdutoSlugRoute: ProdutoSlugRoute,
 }
 export const routeTree = rootRouteImport

@@ -87,7 +87,7 @@ function BeanPage() {
               <Sparkles className="w-4 h-4 text-leaf" /> Notas sensoriais
             </div>
             <ul className="flex flex-wrap gap-2">
-              {bean.notes.map((n) => (
+              {bean.notes.map((n: string) => (
                 <li
                   key={n}
                   className="text-sm px-4 py-2 rounded-full bg-secondary text-secondary-foreground"
