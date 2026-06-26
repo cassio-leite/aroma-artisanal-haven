@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useReveal } from "@/hooks/use-reveal";
 import {
   Coffee,
@@ -8,23 +8,25 @@ import {
   MapPin,
   Clock,
   Phone,
-  Instagram,
-  Facebook,
   ArrowRight,
   Star,
   Quote,
 } from "lucide-react";
 
 import heroImg from "@/assets/hero-cappuccino.jpg";
-import productCappuccino from "@/assets/product-cappuccino.jpg";
-import productCake from "@/assets/product-cake.jpg";
-import productDessert from "@/assets/product-dessert.jpg";
 import storyImg from "@/assets/story.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
+
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { ProductCard } from "@/components/site/ProductCard";
+import { CategoryCard } from "@/components/site/CategoryCard";
+import { BeanCard } from "@/components/site/BeanCard";
+import { products, categories, beans } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,6 +43,7 @@ export const Route = createFileRoute("/")({
         content:
           "Onde cada xícara conta uma história. Cappuccinos artesanais, sobremesas exclusivas e um ambiente para chamar de seu.",
       },
+      { property: "og:image", content: heroImg },
     ],
   }),
   component: Landing,
@@ -56,43 +59,13 @@ function Landing() {
       <Story />
       <Differentials />
       <Categories />
+      <Beans />
       <Gallery />
       <Testimonials />
       <Location />
       <FinalCTA />
       <Footer />
     </div>
-  );
-}
-
-/* ───────────────── Navbar ───────────────── */
-function Navbar() {
-  return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[color-mix(in_oklab,var(--cream)_82%,transparent)] border-b border-border/60">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 h-16 md:h-20 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span className="grid place-items-center w-9 h-9 rounded-full bg-primary text-primary-foreground">
-            <Coffee className="w-4 h-4" />
-          </span>
-          <span className="font-display text-xl md:text-2xl tracking-tight text-espresso">
-            Café <em className="not-italic text-leaf">Aurora</em>
-          </span>
-        </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#produtos" className="hover:text-foreground transition-colors">Produtos</a>
-          <a href="#historia" className="hover:text-foreground transition-colors">Nossa História</a>
-          <a href="#categorias" className="hover:text-foreground transition-colors">Categorias</a>
-          <a href="#galeria" className="hover:text-foreground transition-colors">Galeria</a>
-          <a href="#localizacao" className="hover:text-foreground transition-colors">Visitar</a>
-        </nav>
-        <a
-          href="#localizacao"
-          className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition"
-        >
-          Reservar mesa
-        </a>
-      </div>
-    </header>
   );
 }
 
@@ -126,13 +99,13 @@ function Hero() {
             desacelerar. Um lugar para chamar de seu — em família, a dois ou em boa companhia.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#produtos"
+            <Link
+              to="/cardapio"
               className="inline-flex items-center gap-2 rounded-full bg-cream text-espresso px-7 py-3.5 font-medium hover:bg-cappuccino transition-colors"
             >
               Ver o cardápio
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
             <a
               href="#localizacao"
               className="inline-flex items-center gap-2 rounded-full border border-cream/40 text-cream px-7 py-3.5 font-medium hover:bg-cream/10 transition-colors"
@@ -142,41 +115,13 @@ function Hero() {
           </div>
         </div>
       </div>
-
-      <div className="absolute bottom-6 right-6 lg:right-10 hidden md:flex items-center gap-3 text-cream/70 text-xs tracking-widest uppercase">
-        <span>Role para descobrir</span>
-        <span className="w-12 h-px bg-cream/40" />
-      </div>
     </section>
   );
 }
 
 /* ───────────────── Produtos em Destaque ───────────────── */
-const featured = [
-  {
-    img: productCappuccino,
-    tag: "Assinatura",
-    name: "Cappuccino Aurora",
-    desc: "Espresso encorpado, leite vaporizado na temperatura exata e nossa cobertura secreta de canela em pau.",
-    price: "R$ 18",
-  },
-  {
-    img: productCake,
-    tag: "Confeitaria",
-    name: "Brownie de Cacau 70%",
-    desc: "Massa úmida de chocolate intenso, frutas vermelhas frescas e um toque de flor de sal.",
-    price: "R$ 22",
-  },
-  {
-    img: productDessert,
-    tag: "Da casa",
-    name: "Torta de Doce de Leite",
-    desc: "Receita da família, cozida lentamente em fogo brando, com base crocante e leve toque cítrico.",
-    price: "R$ 24",
-  },
-];
-
 function Featured() {
+  const featured = products.slice(0, 3);
   return (
     <section id="produtos" className="py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -190,35 +135,17 @@ function Featured() {
               Pequenos rituais, <em className="italic">grandes momentos</em>.
             </h2>
           </div>
-          <p className="text-muted-foreground max-w-sm md:text-right">
-            Selecionamos a cada estação os preferidos da casa — preparados na hora, com
-            ingredientes locais e muito afeto.
-          </p>
+          <Link
+            to="/cardapio"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition self-start md:self-end"
+          >
+            Ver cardápio completo <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {featured.map((p) => (
-            <article
-              key={p.name}
-              className="group reveal hover-lift bg-card rounded-3xl overflow-hidden border border-border/60 shadow-[0_1px_0_rgba(0,0,0,0.02)]"
-            >
-              <div className="image-zoom aspect-[4/5]">
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-7">
-                <div className="flex items-center justify-between text-xs uppercase tracking-widest text-leaf mb-3">
-                  <span>{p.tag}</span>
-                  <span className="text-muted-foreground">{p.price}</span>
-                </div>
-                <h3 className="font-display text-2xl mb-2">{p.name}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-              </div>
-            </article>
+            <ProductCard key={p.slug} product={p} />
           ))}
         </div>
       </div>
@@ -324,13 +251,6 @@ function Differentials() {
 }
 
 /* ───────────────── Categorias ───────────────── */
-const cats = [
-  { name: "Cappuccinos", count: "12 receitas", img: productCappuccino },
-  { name: "Sobremesas", count: "20+ opções", img: productDessert },
-  { name: "Bolos", count: "Feitos do dia", img: productCake },
-  { name: "Presentes", count: "Sob encomenda", img: gallery5 },
-];
-
 function Categories() {
   return (
     <section id="categorias" className="py-24 md:py-36 bg-secondary/40">
@@ -345,31 +265,48 @@ function Categories() {
               Para todo <em className="italic">momento do dia</em>.
             </h2>
           </div>
+          <Link
+            to="/categorias"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition self-start md:self-end"
+          >
+            Todas as categorias <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {cats.map((c) => (
-            <a
-              key={c.name}
-              href="#produtos"
-              className="reveal group relative image-zoom rounded-3xl overflow-hidden aspect-[3/4] block"
-            >
-              <img
-                src={c.img}
-                alt={c.name}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-espresso/85 via-espresso/20 to-transparent" />
-              <div className="absolute inset-0 p-5 md:p-7 flex flex-col justify-end text-cream">
-                <div className="text-[11px] uppercase tracking-[0.2em] text-cappuccino mb-1">
-                  {c.count}
-                </div>
-                <div className="font-display text-2xl md:text-3xl flex items-center justify-between">
-                  {c.name}
-                  <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" />
-                </div>
-              </div>
-            </a>
+          {categories.map((c) => (
+            <CategoryCard key={c.slug} category={c} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ───────────────── Grãos ───────────────── */
+function Beans() {
+  return (
+    <section id="graos" className="py-24 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 reveal">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-leaf mb-4">
+              <span className="w-8 h-px bg-leaf" />
+              Conheça nossos grãos
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] max-w-2xl">
+              Cada xícara começa <em className="italic">no campo</em>.
+            </h2>
+          </div>
+          <Link
+            to="/graos"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition self-start md:self-end"
+          >
+            Todos os grãos <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          {beans.map((b) => (
+            <BeanCard key={b.slug} bean={b} />
           ))}
         </div>
       </div>
@@ -380,7 +317,7 @@ function Categories() {
 /* ───────────────── Galeria ───────────────── */
 function Gallery() {
   return (
-    <section id="galeria" className="py-24 md:py-36">
+    <section id="galeria" className="py-24 md:py-36 bg-secondary/40">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="max-w-2xl mb-16 reveal">
           <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-leaf mb-4">
@@ -589,92 +526,16 @@ function FinalCTA() {
                 Reservar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href="#produtos"
+              <Link
+                to="/cardapio"
                 className="inline-flex items-center gap-2 rounded-full border border-cream/30 text-cream px-7 py-3.5 font-medium hover:bg-cream/10 transition-colors"
               >
                 Ver cardápio
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-/* ───────────────── Footer ───────────────── */
-function Footer() {
-  return (
-    <footer className="bg-espresso text-cream/80 pt-20 pb-10">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="grid place-items-center w-9 h-9 rounded-full bg-cream text-espresso">
-                <Coffee className="w-4 h-4" />
-              </span>
-              <span className="font-display text-2xl text-cream">
-                Café <em className="not-italic text-cappuccino">Aurora</em>
-              </span>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-cream/60">
-              Cafeteria artesanal, familiar e acolhedora. Há quinze anos servindo café
-              de verdade com o carinho de sempre.
-            </p>
-          </div>
-
-          <div>
-            <div className="text-xs uppercase tracking-widest text-cappuccino mb-4">
-              Navegar
-            </div>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#produtos" className="hover:text-cream transition">Produtos</a></li>
-              <li><a href="#historia" className="hover:text-cream transition">Nossa História</a></li>
-              <li><a href="#galeria" className="hover:text-cream transition">Galeria</a></li>
-              <li><a href="#localizacao" className="hover:text-cream transition">Visitar</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <div className="text-xs uppercase tracking-widest text-cappuccino mb-4">
-              Acompanhe
-            </div>
-            <div className="flex gap-3">
-              <SocialLink icon={Instagram} label="Instagram" />
-              <SocialLink icon={Facebook} label="Facebook" />
-            </div>
-            <div className="mt-6 text-sm text-cream/60">
-              (48) 99999-0000
-              <br />
-              ola@cafeaurora.com.br
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-cream/50">
-          <span>© {new Date().getFullYear()} Café Aurora. Todos os direitos reservados.</span>
-          <span>Feito com café e carinho em Florianópolis.</span>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-function SocialLink({
-  icon: Icon,
-  label,
-}: {
-  icon: typeof Instagram;
-  label: string;
-}) {
-  return (
-    <a
-      href="#"
-      aria-label={label}
-      className="grid place-items-center w-10 h-10 rounded-full border border-cream/15 hover:bg-cream/10 transition"
-    >
-      <Icon className="w-4 h-4" />
-    </a>
   );
 }
