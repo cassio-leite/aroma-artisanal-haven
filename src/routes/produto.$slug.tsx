@@ -82,7 +82,7 @@ function ProductPage() {
                 Ingredientes
               </div>
               <ul className="flex flex-wrap gap-2">
-                {product.ingredients.map((i) => (
+                {product.ingredients.map((i: string) => (
                   <li
                     key={i}
                     className="text-sm px-4 py-2 rounded-full bg-secondary text-secondary-foreground"
