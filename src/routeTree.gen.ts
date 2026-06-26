@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GraosRouteImport } from './routes/graos'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CardapioRouteImport } from './routes/cardapio'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdutoSlugRouteImport } from './routes/produto.$slug'
 import { Route as CategoriasSlugRouteImport } from './routes/categorias.$slug'
 
+const GraosRoute = GraosRouteImport.update({
+  id: '/graos',
+  path: '/graos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategoriasRoute = CategoriasRouteImport.update({
   id: '/categorias',
   path: '/categorias',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
+  '/graos': typeof GraosRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
   '/produto/$slug': typeof ProdutoSlugRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
+  '/graos': typeof GraosRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
   '/produto/$slug': typeof ProdutoSlugRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cardapio': typeof CardapioRoute
   '/categorias': typeof CategoriasRouteWithChildren
+  '/graos': typeof GraosRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
   '/produto/$slug': typeof ProdutoSlugRoute
 }
@@ -69,15 +78,23 @@ export interface FileRouteTypes {
     | '/'
     | '/cardapio'
     | '/categorias'
+    | '/graos'
     | '/categorias/$slug'
     | '/produto/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cardapio' | '/categorias' | '/categorias/$slug' | '/produto/$slug'
+  to:
+    | '/'
+    | '/cardapio'
+    | '/categorias'
+    | '/graos'
+    | '/categorias/$slug'
+    | '/produto/$slug'
   id:
     | '__root__'
     | '/'
     | '/cardapio'
     | '/categorias'
+    | '/graos'
     | '/categorias/$slug'
     | '/produto/$slug'
   fileRoutesById: FileRoutesById
@@ -86,11 +103,19 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CardapioRoute: typeof CardapioRoute
   CategoriasRoute: typeof CategoriasRouteWithChildren
+  GraosRoute: typeof GraosRoute
   ProdutoSlugRoute: typeof ProdutoSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/graos': {
+      id: '/graos'
+      path: '/graos'
+      fullPath: '/graos'
+      preLoaderRoute: typeof GraosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/categorias': {
       id: '/categorias'
       path: '/categorias'
@@ -145,6 +170,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CardapioRoute: CardapioRoute,
   CategoriasRoute: CategoriasRouteWithChildren,
+  GraosRoute: GraosRoute,
   ProdutoSlugRoute: ProdutoSlugRoute,
 }
 export const routeTree = rootRouteImport
