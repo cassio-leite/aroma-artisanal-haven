@@ -2,8 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Phone, MessageCircle, Clock, CheckCircle, Loader2 } from "lucide-react";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import { useReveal } from "@/hooks/use-reveal";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, type Resolver } from "react-hook-form";
 import { z } from "zod";
 import { useState } from "react";
 
@@ -36,6 +35,22 @@ const contatoSchema = z.object({
 });
 type ContatoFormData = z.infer<typeof contatoSchema>;
 
+const contatoResolver: Resolver<ContatoFormData> = async (values) => {
+  const result = contatoSchema.safeParse(values);
+  if (result.success) {
+    return { values: result.data, errors: {} };
+  }
+
+  const errors: Record<string, { type: string; message: string }> = {};
+  for (const issue of result.error.issues) {
+    const field = issue.path[0];
+    if (typeof field === "string" && !errors[field]) {
+      errors[field] = { type: issue.code, message: issue.message };
+    }
+  }
+  return { values: {}, errors };
+};
+
 function ContatoPage() {
   useReveal();
 
@@ -46,7 +61,7 @@ function ContatoPage() {
     formState: { errors, isSubmitting, isValid },
     reset,
   } = useForm<ContatoFormData>({
-    resolver: zodResolver(contatoSchema),
+    resolver: contatoResolver,
     mode: "all",
   });
 
@@ -172,7 +187,7 @@ function ContatoPage() {
               </button>
             </form>
             {showSuccess && (
-              <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl p-4 shadow-lg animate-in fade-in slide-in-from-bottom-4">
+              <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl p-4 shadow-lg">
                 <CheckCircle className="w-5 h-5 text-green-600 shrink-0" />
                 <p className="text-sm font-medium text-green-700">Mensagem enviada com sucesso!</p>
               </div>
