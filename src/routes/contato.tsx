@@ -94,7 +94,7 @@ function ContatoPage() {
               atender.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {[
                 {
                   icon: MapPin,
@@ -187,7 +187,7 @@ function ContatoPage() {
               </button>
             </form>
             {showSuccess && (
-              <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl p-4 shadow-lg">
+              <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 left-4 sm:left-auto max-w-sm z-50 flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl p-4 shadow-lg">
                 <CheckCircle className="w-5 h-5 text-green-600 shrink-0" />
                 <p className="text-sm font-medium text-green-700">Mensagem enviada com sucesso!</p>
               </div>
