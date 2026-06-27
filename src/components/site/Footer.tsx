@@ -55,8 +55,12 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-xs text-cream/50">
-          <span className="max-w-full">© {new Date().getFullYear()} Café Aurora. Todos os direitos reservados.</span>
-          <span className="max-w-full sm:text-right">Feito com café e carinho em Florianópolis.</span>
+          <span className="max-w-full">
+            © {new Date().getFullYear()} Café Aurora. Todos os direitos reservados.
+          </span>
+          <span className="max-w-full sm:text-right">
+            Feito com café e carinho em Florianópolis.
+          </span>
         </div>
       </div>
     </footer>

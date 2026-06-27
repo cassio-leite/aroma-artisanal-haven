@@ -29,8 +29,8 @@ const contatoSchema = z.object({
   name: z.string().min(3, "Mínimo 3 caracteres").max(100),
   email: z.string().email("Email inválido"),
   phone: z
-  .string()
-  .regex(/^\(?\d{2}\)?[\s-]?9?\d{4}-?\d{4}$/, "Formato: (48) 99999-9999 ou 48999999999"),
+    .string()
+    .regex(/^\(?\d{2}\)?[\s-]?9?\d{4}-?\d{4}$/, "Formato: (48) 99999-9999 ou 48999999999"),
   message: z.string().min(10, "Mínimo 10 caracteres").max(1000),
 });
 type ContatoFormData = z.infer<typeof contatoSchema>;
