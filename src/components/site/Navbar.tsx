@@ -8,12 +8,12 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[color-mix(in_oklab,var(--cream)_82%,transparent)] border-b border-border/60">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 h-16 md:h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="grid place-items-center w-9 h-9 rounded-full bg-primary text-primary-foreground">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 md:h-20 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 min-w-0" onClick={() => setOpen(false)}>
+          <span className="grid place-items-center w-9 h-9 shrink-0 rounded-full bg-primary text-primary-foreground">
             <Coffee className="w-4 h-4" />
           </span>
-          <span className="font-display text-xl md:text-2xl tracking-tight text-espresso">
+          <span className="font-display text-lg sm:text-xl md:text-2xl tracking-tight text-espresso truncate">
             Café <em className="not-italic text-leaf">Aurora</em>
           </span>
         </Link>
@@ -32,7 +32,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <Link
             to="/"
             hash="localizacao"
@@ -59,7 +59,7 @@ export function Navbar() {
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="px-6 py-6 flex flex-col gap-1 bg-background/95">
+        <nav className="px-4 sm:px-6 py-6 flex flex-col gap-1 bg-background/95">
           {navLinks.map((l) => (
             <Link
               key={l.to}

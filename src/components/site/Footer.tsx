@@ -4,15 +4,15 @@ import { navLinks } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="bg-espresso text-cream/80 pt-20 pb-10">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-espresso text-cream/80 pt-16 sm:pt-20 pb-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="grid md:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-5">
-              <span className="grid place-items-center w-9 h-9 rounded-full bg-cream text-espresso">
+              <span className="grid place-items-center w-9 h-9 shrink-0 rounded-full bg-cream text-espresso">
                 <Coffee className="w-4 h-4" />
               </span>
-              <span className="font-display text-2xl text-cream">
+              <span className="font-display text-xl sm:text-2xl text-cream">
                 Café <em className="not-italic text-cappuccino">Aurora</em>
               </span>
             </div>
@@ -54,9 +54,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-cream/50">
-          <span>© {new Date().getFullYear()} Café Aurora. Todos os direitos reservados.</span>
-          <span>Feito com café e carinho em Florianópolis.</span>
+        <div className="pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-xs text-cream/50">
+          <span className="max-w-full">© {new Date().getFullYear()} Café Aurora. Todos os direitos reservados.</span>
+          <span className="max-w-full sm:text-right">Feito com café e carinho em Florianópolis.</span>
         </div>
       </div>
     </footer>
