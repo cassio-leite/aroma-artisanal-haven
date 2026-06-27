@@ -75,7 +75,10 @@ function ProductPage() {
             {product.tag}
           </span>
           <h1 className="font-display text-4xl md:text-6xl leading-[1.05]">{product.name}</h1>
-          <div className="mt-6 text-3xl font-display text-primary">{product.price}</div>
+          <div className="mt-8 mb-6">
+            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Preço</div>
+            <div className="text-4xl font-bold font-display text-primary">{product.price}</div>
+          </div>
           <p className="mt-8 text-muted-foreground leading-relaxed text-[15px]">
             {product.longDesc}
           </p>
