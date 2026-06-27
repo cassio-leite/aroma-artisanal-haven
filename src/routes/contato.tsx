@@ -1,22 +1,61 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MapPin, Phone, MessageCircle, Clock } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Clock, CheckCircle, Loader2 } from "lucide-react";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import { useReveal } from "@/hooks/use-reveal";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useState } from "react";
 
 export const Route = createFileRoute("/contato")({
   component: ContatoPage,
   head: () => ({
     meta: [
       { title: "Contato — Café Aurora" },
-      { name: "description", content: "Entre em contato com a Café Aurora. Tire dúvidas, faça reservas, encomende presentes artesanais ou venha tomar um café conosco." },
+      {
+        name: "description",
+        content:
+          "Entre em contato com a Café Aurora. Tire dúvidas, faça reservas, encomende presentes artesanais ou venha tomar um café conosco.",
+      },
       { property: "og:title", content: "Contato — Café Aurora" },
-      { property: "og:description", content: "Entre em contato conosco para tirar dúvidas, fazer reservas ou encomendas." },
+      {
+        property: "og:description",
+        content: "Entre em contato conosco para tirar dúvidas, fazer reservas ou encomendas.",
+      },
     ],
   }),
 });
 
+const contatoSchema = z.object({
+  name: z.string().min(3, "Mínimo 3 caracteres").max(100),
+  email: z.string().email("Email inválido"),
+  phone: z
+  .string()
+  .regex(/^\(?\d{2}\)?[\s-]?9?\d{4}-?\d{4}$/, "Formato: (48) 99999-9999 ou 48999999999"),
+  message: z.string().min(10, "Mínimo 10 caracteres").max(1000),
+});
+type ContatoFormData = z.infer<typeof contatoSchema>;
+
 function ContatoPage() {
   useReveal();
+
+  const [showSuccess, setShowSuccess] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isValid },
+    reset,
+  } = useForm<ContatoFormData>({
+    resolver: zodResolver(contatoSchema),
+    mode: "all",
+  });
+
+  const onSubmit = async (data: ContatoFormData) => {
+    await new Promise((r) => setTimeout(r, 1500));
+    setShowSuccess(true);
+    reset();
+    setTimeout(() => setShowSuccess(false), 4000);
+  };
 
   return (
     <SiteShell>
@@ -36,12 +75,17 @@ function ContatoPage() {
           <div className="reveal">
             <h2 className="font-display text-4xl md:text-5xl mb-6">Estamos esperando por você.</h2>
             <p className="text-muted-foreground mb-12">
-              Escolha o canal que for mais confortável para você. Nossa equipe está pronta para lhe atender.
+              Escolha o canal que for mais confortável para você. Nossa equipe está pronta para lhe
+              atender.
             </p>
-            
+
             <div className="grid sm:grid-cols-2 gap-6">
               {[
-                { icon: MapPin, title: "Endereço", desc: "Rua das Acácias, 245\nCentro Histórico\nFlorianópolis — SC" },
+                {
+                  icon: MapPin,
+                  title: "Endereço",
+                  desc: "Rua das Acácias, 245\nCentro Histórico\nFlorianópolis — SC",
+                },
                 { icon: Phone, title: "Telefone", desc: "(48) 99999-0000" },
                 { icon: MessageCircle, title: "WhatsApp", desc: "(48) 99999-0000" },
                 { icon: Clock, title: "Horário", desc: "Seg-Sex: 07h às 20h\nSáb-Dom: 08h às 21h" },
@@ -58,27 +102,81 @@ function ContatoPage() {
           </div>
 
           <div className="reveal bg-card border border-border/60 rounded-3xl p-8 md:p-10">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <label className="text-sm font-medium mb-2 block">Nome</label>
-                <input type="text" className="w-full rounded-2xl bg-background border border-border/60 p-3 transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Seu nome" />
+                <input
+                  type="text"
+                  placeholder="Seu nome"
+                  {...register("name")}
+                  disabled={isSubmitting}
+                  className={`w-full rounded-2xl bg-background border p-3 transition-colors focus:border-primary focus:ring-1 disabled:opacity-50 ${errors.name ? "border-red-500" : "border-border/60"}`}
+                />
+                {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
               </div>
+
               <div>
                 <label className="text-sm font-medium mb-2 block">Email</label>
-                <input type="email" className="w-full rounded-2xl bg-background border border-border/60 p-3 transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="seu@email.com" />
+                <input
+                  type="email"
+                  placeholder="seu@email.com"
+                  {...register("email")}
+                  disabled={isSubmitting}
+                  className={`w-full rounded-2xl bg-background border p-3 transition-colors focus:border-primary focus:ring-1 disabled:opacity-50 ${errors.email ? "border-red-500" : "border-border/60"}`}
+                />
+                {errors.email && (
+                  <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
+                )}
               </div>
+
               <div>
                 <label className="text-sm font-medium mb-2 block">Telefone</label>
-                <input type="tel" className="w-full rounded-2xl bg-background border border-border/60 p-3 transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="(48) 99999-9999" />
+                <input
+                  type="tel"
+                  placeholder="(48) 99999-9999"
+                  {...register("phone")}
+                  disabled={isSubmitting}
+                  className={`w-full rounded-2xl bg-background border p-3 transition-colors focus:border-primary focus:ring-1 disabled:opacity-50 ${errors.phone ? "border-red-500" : "border-border/60"}`}
+                />
+                {errors.phone && (
+                  <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
+                )}
               </div>
+
               <div>
                 <label className="text-sm font-medium mb-2 block">Mensagem</label>
-                <textarea className="w-full rounded-2xl bg-background border border-border/60 p-3 transition-colors focus:border-primary focus:ring-1 focus:ring-primary h-32" placeholder="Como podemos te ajudar?"></textarea>
+                <textarea
+                  placeholder="Como podemos te ajudar?"
+                  {...register("message")}
+                  disabled={isSubmitting}
+                  className={`w-full rounded-2xl bg-background border p-3 transition-colors focus:border-primary focus:ring-1 h-32 disabled:opacity-50 ${errors.message ? "border-red-500" : "border-border/60"}`}
+                />
+                {errors.message && (
+                  <p className="text-xs text-red-500 mt-1">{errors.message.message}</p>
+                )}
               </div>
-              <button className="w-full rounded-2xl bg-primary text-primary-foreground py-3.5 font-medium hover:bg-primary/90 transition-colors">
-                Enviar mensagem
+
+              <button
+                type="submit"
+                disabled={isSubmitting || !isValid}
+                className="w-full rounded-2xl bg-primary text-primary-foreground py-3.5 font-medium hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  "Enviar mensagem"
+                )}
               </button>
             </form>
+            {showSuccess && (
+              <div className="fixed bottom-6 right-6 flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl p-4 shadow-lg animate-in fade-in slide-in-from-bottom-4">
+                <CheckCircle className="w-5 h-5 text-green-600 shrink-0" />
+                <p className="text-sm font-medium text-green-700">Mensagem enviada com sucesso!</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -96,7 +194,7 @@ function ContatoPage() {
             href="https://wa.me/5548999990000"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-emerald-600 text-white px-8 py-3.5 font-medium hover:bg-emerald-700 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-leaf text-white px-8 py-3.5 font-medium hover:bg-leaf transition-colors"
           >
             <MessageCircle className="w-5 h-5" />
             Falar pelo WhatsApp
@@ -111,12 +209,24 @@ function ContatoPage() {
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           {[
-            { q: "É necessário fazer reserva?", a: "Não. Porém recomendamos reservas aos finais de semana." },
-            { q: "Vocês possuem opções sem lactose?", a: "Sim. Temos bebidas com leite vegetal e sobremesas selecionadas." },
-            { q: "Posso encomendar presentes?", a: "Sim. Produzimos kits personalizados sob encomenda." },
+            {
+              q: "É necessário fazer reserva?",
+              a: "Não. Porém recomendamos reservas aos finais de semana.",
+            },
+            {
+              q: "Vocês possuem opções sem lactose?",
+              a: "Sim. Temos bebidas com leite vegetal e sobremesas selecionadas.",
+            },
+            {
+              q: "Posso encomendar presentes?",
+              a: "Sim. Produzimos kits personalizados sob encomenda.",
+            },
             { q: "Aceitam pets?", a: "Sim. Nossa área externa é pet friendly." },
           ].map((item, i) => (
-            <div key={i} className="reveal hover-lift bg-card rounded-3xl p-8 border border-border/60">
+            <div
+              key={i}
+              className="reveal hover-lift bg-card rounded-3xl p-8 border border-border/60"
+            >
               <h4 className="font-display text-2xl mb-3">{item.q}</h4>
               <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
             </div>
