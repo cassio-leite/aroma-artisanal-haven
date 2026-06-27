@@ -9,9 +9,16 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
       { title: "Sobre — Café Aurora" },
-      { name: "description", content: "Conheça a história da Café Aurora: 15 anos de café artesanal, ingredientes locais e um espaço para chamar de seu em Florianópolis." },
+      {
+        name: "description",
+        content:
+          "Conheça a história da Café Aurora: 15 anos de café artesanal, ingredientes locais e um espaço para chamar de seu em Florianópolis.",
+      },
       { property: "og:title", content: "Sobre — Café Aurora" },
-      { property: "og:description", content: "Uma cafeteria nascida do amor pelo café, pelo encontro e pelo que é local." },
+      {
+        property: "og:description",
+        content: "Uma cafeteria nascida do amor pelo café, pelo encontro e pelo que é local.",
+      },
     ],
   }),
 });
@@ -47,13 +54,17 @@ function SobrePage() {
             </h2>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                A Café Aurora nasceu em 2009, em Florianópolis, quando Dona Maria Aurora decidiu transformar a varanda da sua casa em um espaço de café. Sem planejamento formal, apenas com receitas de família e um fogão à lenha.
+                A Café Aurora nasceu em 2009, em Florianópolis, quando Dona Maria Aurora decidiu
+                transformar a varanda da sua casa em um espaço de café. Sem planejamento formal,
+                apenas com receitas de família e um fogão à lenha.
               </p>
               <p>
-                O que começou como um projeto pessoal virou ponto de encontro do bairro. Em 2014, nos mudamos para o espaço atual — maior, mas com o mesmo calor de sempre.
+                O que começou como um projeto pessoal virou ponto de encontro do bairro. Em 2014,
+                nos mudamos para o espaço atual — maior, mas com o mesmo calor de sempre.
               </p>
               <p>
-                Hoje somos uma equipe de doze pessoas apaixonadas, mas a filosofia não mudou: café feito com tempo, atenção e carinho.
+                Hoje somos uma equipe de doze pessoas apaixonadas, mas a filosofia não mudou: café
+                feito com tempo, atenção e carinho.
               </p>
             </div>
           </div>
@@ -70,9 +81,14 @@ function SobrePage() {
               { number: "+40", label: "receitas autorais" },
               { number: "12", label: "pessoas na equipe" },
             ].map((stat, i) => (
-              <div key={i} className="reveal bg-card border border-border/60 rounded-3xl p-8 text-center">
+              <div
+                key={i}
+                className="reveal bg-card border border-border/60 rounded-3xl p-8 text-center"
+              >
                 <div className="font-display text-5xl text-primary">{stat.number}</div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2">{stat.label}</div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -83,8 +99,7 @@ function SobrePage() {
       <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-36">
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-leaf mb-4">
-            <span className="w-8 h-px bg-leaf" />
-            O que nos move
+            <span className="w-8 h-px bg-leaf" />O que nos move
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
             Feito com <em className="italic">intenção</em>.
@@ -92,11 +107,26 @@ function SobrePage() {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { icon: Leaf, title: "Ingredientes locais", desc: "Trabalhamos com produtores da região e valorizamos o que é cultivado perto de nós." },
-            { icon: Heart, title: "Feito à mão", desc: "Nada aqui é industrializado. Cada receita é preparada diariamente pela nossa equipe." },
-            { icon: Users, title: "Espaço de encontro", desc: "Mais do que uma cafeteria, somos um lugar para desacelerar e se reconectar com quem você ama." },
+            {
+              icon: Leaf,
+              title: "Ingredientes locais",
+              desc: "Trabalhamos com produtores da região e valorizamos o que é cultivado perto de nós.",
+            },
+            {
+              icon: Heart,
+              title: "Feito à mão",
+              desc: "Nada aqui é industrializado. Cada receita é preparada diariamente pela nossa equipe.",
+            },
+            {
+              icon: Users,
+              title: "Espaço de encontro",
+              desc: "Mais do que uma cafeteria, somos um lugar para desacelerar e se reconectar com quem você ama.",
+            },
           ].map((item, i) => (
-            <div key={i} className="reveal hover-lift bg-card rounded-3xl p-8 border border-border/60">
+            <div
+              key={i}
+              className="reveal hover-lift bg-card rounded-3xl p-8 border border-border/60"
+            >
               <div className="grid place-items-center w-12 h-12 rounded-2xl bg-secondary text-primary mb-6">
                 <item.icon className="w-6 h-6" />
               </div>
@@ -113,7 +143,9 @@ function SobrePage() {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
             Venha nos <em className="italic text-cappuccino">conhecer</em>.
           </h2>
-          <p className="text-cream/80 mb-10 text-lg">Estamos na Rua das Acácias, 245 — Centro Histórico, Florianópolis.</p>
+          <p className="text-cream/80 mb-10 text-lg">
+            Estamos na Rua das Acácias, 245 — Centro Histórico, Florianópolis.
+          </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/"

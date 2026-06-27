@@ -30,7 +30,11 @@ function CardapioPage() {
     <SiteShell>
       <PageHeader
         eyebrow="Cardápio"
-        title={<>Todas as receitas da <em className="italic">casa</em>.</>}
+        title={
+          <>
+            Todas as receitas da <em className="italic">casa</em>.
+          </>
+        }
         description="Selecionamos a cada estação os preferidos da casa — preparados na hora, com ingredientes locais."
       />
 

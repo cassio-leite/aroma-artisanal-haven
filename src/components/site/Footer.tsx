@@ -17,15 +17,13 @@ export function Footer() {
               </span>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-cream/60">
-              Cafeteria artesanal, familiar e acolhedora. Há quinze anos servindo café
-              de verdade com o carinho de sempre.
+              Cafeteria artesanal, familiar e acolhedora. Há quinze anos servindo café de verdade
+              com o carinho de sempre.
             </p>
           </div>
 
           <div>
-            <div className="text-xs uppercase tracking-widest text-cappuccino mb-4">
-              Navegar
-            </div>
+            <div className="text-xs uppercase tracking-widest text-cappuccino mb-4">Navegar</div>
             <ul className="space-y-2 text-sm">
               {navLinks.map((l) => (
                 <li key={l.to}>
@@ -43,9 +41,7 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="text-xs uppercase tracking-widest text-cappuccino mb-4">
-              Acompanhe
-            </div>
+            <div className="text-xs uppercase tracking-widest text-cappuccino mb-4">Acompanhe</div>
             <div className="flex gap-3">
               <SocialLink icon={Instagram} label="Instagram" />
               <SocialLink icon={Facebook} label="Facebook" />

@@ -29,7 +29,11 @@ function CategoriasPage() {
     <SiteShell>
       <PageHeader
         eyebrow="Categorias"
-        title={<>Para todo <em className="italic">momento do dia</em>.</>}
+        title={
+          <>
+            Para todo <em className="italic">momento do dia</em>.
+          </>
+        }
         description="Quatro famílias de produtos, todas preparadas com a mesma atenção e ingredientes locais."
       />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pb-24 md:pb-36">

@@ -44,7 +44,10 @@ export function BeanCard({ bean }: { bean: Bean }) {
 
 export function IntensityDots({ value }: { value: number }) {
   return (
-    <span className="inline-flex items-center gap-1 text-muted-foreground" aria-label={`Intensidade ${value} de 5`}>
+    <span
+      className="inline-flex items-center gap-1 text-muted-foreground"
+      aria-label={`Intensidade ${value} de 5`}
+    >
       <Flame className="w-3.5 h-3.5 text-primary" />
       {Array.from({ length: 5 }).map((_, i) => (
         <span

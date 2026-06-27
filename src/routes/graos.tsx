@@ -29,7 +29,11 @@ function BeansPage() {
     <SiteShell>
       <PageHeader
         eyebrow="Conheça nossos grãos"
-        title={<>Cada xícara começa <em className="italic">no campo</em>.</>}
+        title={
+          <>
+            Cada xícara começa <em className="italic">no campo</em>.
+          </>
+        }
         description="Trabalhamos diretamente com produtores selecionados e torramos em pequenos lotes na nossa casa. Conheça a história de cada grão."
       />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pb-24 md:pb-36">

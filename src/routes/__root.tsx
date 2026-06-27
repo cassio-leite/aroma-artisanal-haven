@@ -17,9 +17,7 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Página não encontrada</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Essa página não existe ou foi movida.
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">Essa página não existe ou foi movida.</p>
         <div className="mt-6">
           <Link
             to="/"
@@ -74,10 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Café Aurora — Cafeteria artesanal, acolhedora e regional" },
-      { name: "description", content: "Cappuccinos artesanais, sobremesas exclusivas e um ambiente acolhedor para famílias e amantes de café. Visite a Café Aurora em Florianópolis." },
+      {
+        name: "description",
+        content:
+          "Cappuccinos artesanais, sobremesas exclusivas e um ambiente acolhedor para famílias e amantes de café. Visite a Café Aurora em Florianópolis.",
+      },
       { name: "author", content: "Café Aurora" },
       { property: "og:title", content: "Café Aurora — Cafeteria artesanal" },
-      { property: "og:description", content: "Onde cada xícara conta uma história. Cappuccinos artesanais, sobremesas exclusivas e um ambiente para chamar de seu." },
+      {
+        property: "og:description",
+        content:
+          "Onde cada xícara conta uma história. Cappuccinos artesanais, sobremesas exclusivas e um ambiente para chamar de seu.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },

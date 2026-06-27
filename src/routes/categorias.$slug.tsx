@@ -36,7 +36,9 @@ export const Route = createFileRoute("/categorias/$slug")({
     <SiteShell>
       <div className="mx-auto max-w-3xl px-6 py-32 text-center">
         <h1 className="font-display text-4xl mb-4">Não conseguimos carregar esta página</h1>
-        <button onClick={reset} className="text-primary underline">Tentar novamente</button>
+        <button onClick={reset} className="text-primary underline">
+          Tentar novamente
+        </button>
       </div>
     </SiteShell>
   ),

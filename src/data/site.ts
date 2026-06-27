@@ -55,15 +55,13 @@ export const categories: Category[] = [
   {
     slug: "bolos",
     name: "Bolos",
-    description:
-      "Bolos do dia, fatias generosas e receitas que lembram a casa da avó.",
+    description: "Bolos do dia, fatias generosas e receitas que lembram a casa da avó.",
     image: productCake,
   },
   {
     slug: "presentes",
     name: "Presentes",
-    description:
-      "Caixas e kits artesanais para presentear quem você ama, montados sob encomenda.",
+    description: "Caixas e kits artesanais para presentear quem você ama, montados sob encomenda.",
     image: gallery5,
   },
 ];
@@ -77,8 +75,7 @@ export const products: Product[] = [
     price: "R$ 18",
     category: "cappuccinos",
     image: productCappuccino,
-    shortDesc:
-      "Espresso encorpado, leite vaporizado e nossa cobertura secreta de canela em pau.",
+    shortDesc: "Espresso encorpado, leite vaporizado e nossa cobertura secreta de canela em pau.",
     longDesc:
       "O carro-chefe da casa. Combina um espresso encorpado de torra média-escura com leite vaporizado na temperatura exata e finalizado com nossa cobertura secreta de canela em pau ralada na hora. Um abraço em forma de xícara.",
     ingredients: ["Espresso duplo", "Leite integral", "Canela em pau", "Açúcar mascavo (opcional)"],
@@ -203,8 +200,7 @@ export const beans: Bean[] = [
     origin: "Bahia, Brasil",
     intensity: 4,
     notes: ["Frutas amarelas", "Mel silvestre", "Cacau"],
-    shortDesc:
-      "Notas frutadas e acidez vibrante. Brilha em métodos coados como V60 e Chemex.",
+    shortDesc: "Notas frutadas e acidez vibrante. Brilha em métodos coados como V60 e Chemex.",
     longDesc:
       "Grãos arábica de variedade Catuaí Amarelo, processo cereja descascado. A altitude e o clima seco da Chapada favorecem uma maturação lenta dos frutos, traduzida em uma xícara complexa, frutada e com acidez cítrica equilibrada por notas de mel.",
     image: gallery2,
@@ -215,8 +211,7 @@ export const beans: Bean[] = [
     origin: "Huila, Colômbia",
     intensity: 4,
     notes: ["Frutas vermelhas", "Floral", "Açúcar mascavo"],
-    shortDesc:
-      "Acidez delicada e perfume floral. Um clássico colombiano para apreciar puro.",
+    shortDesc: "Acidez delicada e perfume floral. Um clássico colombiano para apreciar puro.",
     longDesc:
       "Microlote da região de Pitalito, cultivado a mais de 1.700m. Processo lavado tradicional, secagem ao sol em camas africanas. Resulta em uma xícara doce, floral e com final limpo de frutas vermelhas frescas.",
     image: gallery3,
@@ -227,8 +222,7 @@ export const beans: Bean[] = [
     origin: "Sidamo, Etiópia",
     intensity: 2,
     notes: ["Jasmim", "Bergamota", "Pêssego branco"],
-    shortDesc:
-      "Leve, aromático e elegante. Para quem aprecia cafés delicados e perfumados.",
+    shortDesc: "Leve, aromático e elegante. Para quem aprecia cafés delicados e perfumados.",
     longDesc:
       "Da terra natal do café, este grão de altitude elevada (acima de 1.900m) e processo natural revela toda a complexidade aromática típica da Etiópia. Corpo leve, acidez brilhante e final longo perfumado.",
     image: gallery1,

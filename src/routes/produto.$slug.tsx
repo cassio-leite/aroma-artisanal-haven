@@ -37,7 +37,9 @@ export const Route = createFileRoute("/produto/$slug")({
     <SiteShell>
       <div className="mx-auto max-w-3xl px-6 py-32 text-center">
         <h1 className="font-display text-4xl mb-4">Não conseguimos carregar este produto</h1>
-        <button onClick={reset} className="text-primary underline">Tentar novamente</button>
+        <button onClick={reset} className="text-primary underline">
+          Tentar novamente
+        </button>
       </div>
     </SiteShell>
   ),
@@ -47,7 +49,9 @@ export const Route = createFileRoute("/produto/$slug")({
 function ProductPage() {
   useReveal();
   const { product, category } = Route.useLoaderData();
-  const related = products.filter((p) => p.category === product.category && p.slug !== product.slug).slice(0, 3);
+  const related = products
+    .filter((p) => p.category === product.category && p.slug !== product.slug)
+    .slice(0, 3);
 
   return (
     <SiteShell>

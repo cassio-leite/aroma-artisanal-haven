@@ -95,8 +95,8 @@ function Hero() {
             conta uma <em className="italic text-cappuccino">história</em>.
           </h1>
           <p className="mt-6 text-base md:text-lg text-cream/80 max-w-lg leading-relaxed">
-            Cappuccinos artesanais, sobremesas feitas com carinho e um espaço para
-            desacelerar. Um lugar para chamar de seu — em família, a dois ou em boa companhia.
+            Cappuccinos artesanais, sobremesas feitas com carinho e um espaço para desacelerar. Um
+            lugar para chamar de seu — em família, a dois ou em boa companhia.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
@@ -176,18 +176,17 @@ function Story() {
           </h2>
           <div className="space-y-5 text-muted-foreground leading-relaxed text-[15px]">
             <p>
-              A Café Aurora nasceu em 2009, em uma pequena casa de esquina, com uma
-              ideia simples: oferecer um café honesto, feito com tempo e atenção, em um
-              espaço onde as pessoas se sentissem em casa.
+              A Café Aurora nasceu em 2009, em uma pequena casa de esquina, com uma ideia simples:
+              oferecer um café honesto, feito com tempo e atenção, em um espaço onde as pessoas se
+              sentissem em casa.
             </p>
             <p>
-              Trabalhamos diretamente com produtores da região, torramos nossos grãos em
-              pequenos lotes e preparamos cada bebida no balcão — para que você sinta o
-              cuidado em cada gole.
+              Trabalhamos diretamente com produtores da região, torramos nossos grãos em pequenos
+              lotes e preparamos cada bebida no balcão — para que você sinta o cuidado em cada gole.
             </p>
             <p>
-              Hoje somos um ponto de encontro de famílias, casais e amantes de café.
-              Continuamos os mesmos: artesanais, próximos e apaixonados pelo que fazemos.
+              Hoje somos um ponto de encontro de famílias, casais e amantes de café. Continuamos os
+              mesmos: artesanais, próximos e apaixonados pelo que fazemos.
             </p>
           </div>
           <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
@@ -212,10 +211,26 @@ function Story() {
 
 /* ───────────────── Diferenciais ───────────────── */
 const diffs = [
-  { icon: Coffee, t: "Cappuccinos artesanais", d: "Grãos torrados em pequenos lotes e preparados no balcão por baristas formados." },
-  { icon: Cake, t: "Sobremesas exclusivas", d: "Receitas autorais, sem corantes artificiais, feitas diariamente na nossa cozinha." },
-  { icon: Gift, t: "Presentes personalizados", d: "Caixas e cestas montadas à mão para celebrar quem você ama." },
-  { icon: HeartHandshake, t: "Atendimento acolhedor", d: "Aqui você é recebido pelo nome — porque um bom café começa por uma boa companhia." },
+  {
+    icon: Coffee,
+    t: "Cappuccinos artesanais",
+    d: "Grãos torrados em pequenos lotes e preparados no balcão por baristas formados.",
+  },
+  {
+    icon: Cake,
+    t: "Sobremesas exclusivas",
+    d: "Receitas autorais, sem corantes artificiais, feitas diariamente na nossa cozinha.",
+  },
+  {
+    icon: Gift,
+    t: "Presentes personalizados",
+    d: "Caixas e cestas montadas à mão para celebrar quem você ama.",
+  },
+  {
+    icon: HeartHandshake,
+    t: "Atendimento acolhedor",
+    d: "Aqui você é recebido pelo nome — porque um bom café começa por uma boa companhia.",
+  },
 ];
 
 function Differentials() {
@@ -224,8 +239,7 @@ function Differentials() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="max-w-2xl mb-16 reveal">
           <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-leaf mb-4">
-            <span className="w-8 h-px bg-leaf" />
-            O que nos move
+            <span className="w-8 h-px bg-leaf" />O que nos move
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
             Detalhes que fazem <em className="italic">a diferença</em>.
@@ -331,19 +345,44 @@ function Gallery() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
           <div className="reveal image-zoom rounded-3xl overflow-hidden row-span-2 col-span-2 md:col-span-2 aspect-square md:aspect-auto">
-            <img src={gallery1} alt="Interior da cafeteria" loading="lazy" className="w-full h-full object-cover" />
+            <img
+              src={gallery1}
+              alt="Interior da cafeteria"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img src={gallery2} alt="Croissant e espresso" loading="lazy" className="w-full h-full object-cover" />
+            <img
+              src={gallery2}
+              alt="Croissant e espresso"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img src={gallery4} alt="Grãos de café" loading="lazy" className="w-full h-full object-cover" />
+            <img
+              src={gallery4}
+              alt="Grãos de café"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img src={gallery3} alt="Mesa do café com plantas" loading="lazy" className="w-full h-full object-cover" />
+            <img
+              src={gallery3}
+              alt="Mesa do café com plantas"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img src={gallery5} alt="Presente artesanal" loading="lazy" className="w-full h-full object-cover" />
+            <img
+              src={gallery5}
+              alt="Presente artesanal"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
@@ -485,9 +524,7 @@ function InfoRow({
         <Icon className="w-4 h-4" />
       </span>
       <div className="min-w-0">
-        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
-          {title}
-        </div>
+        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">{title}</div>
         <div className="text-foreground leading-relaxed">{children}</div>
       </div>
     </div>
@@ -513,8 +550,7 @@ function FinalCTA() {
               <em className="italic text-cappuccino">deixe o tempo passar</em>.
             </h2>
             <p className="mt-6 text-primary-foreground/80 max-w-xl mx-auto">
-              Estamos te esperando para servir o melhor café da região, num lugar feito
-              para ficar.
+              Estamos te esperando para servir o melhor café da região, num lugar feito para ficar.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a

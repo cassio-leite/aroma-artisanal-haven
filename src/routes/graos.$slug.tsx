@@ -36,7 +36,9 @@ export const Route = createFileRoute("/graos/$slug")({
     <SiteShell>
       <div className="mx-auto max-w-3xl px-6 py-32 text-center">
         <h1 className="font-display text-4xl mb-4">Não conseguimos carregar este grão</h1>
-        <button onClick={reset} className="text-primary underline">Tentar novamente</button>
+        <button onClick={reset} className="text-primary underline">
+          Tentar novamente
+        </button>
       </div>
     </SiteShell>
   ),
@@ -69,9 +71,7 @@ function BeanPage() {
             Grão da casa
           </span>
           <h1 className="font-display text-4xl md:text-6xl leading-[1.05]">{bean.name}</h1>
-          <p className="mt-8 text-muted-foreground leading-relaxed text-[15px]">
-            {bean.longDesc}
-          </p>
+          <p className="mt-8 text-muted-foreground leading-relaxed text-[15px]">{bean.longDesc}</p>
 
           <dl className="mt-10 grid sm:grid-cols-2 gap-5">
             <Fact icon={MapPin} label="Origem" value={bean.origin} />
@@ -131,9 +131,7 @@ function Fact({
         <Icon className="w-4 h-4" />
       </span>
       <div className="min-w-0">
-        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
-          {label}
-        </div>
+        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">{label}</div>
         <div className="text-foreground">{value}</div>
       </div>
     </div>
