@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useRouterState } from "@tanstack/react-router";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import { BeanCard } from "@/components/site/BeanCard";
 import { useReveal } from "@/hooks/use-reveal";
@@ -25,6 +25,13 @@ export const Route = createFileRoute("/graos")({
 
 function BeansPage() {
   useReveal();
+  const routerState = useRouterState();
+  const isIndex = routerState.location.pathname === "/graos";
+
+  return isIndex ? <BeansList /> : <Outlet />;
+}
+
+function BeansList() {
   return (
     <SiteShell>
       <PageHeader

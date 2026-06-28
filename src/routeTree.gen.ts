@@ -15,9 +15,9 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CardapioRouteImport } from './routes/cardapio'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProdutoSlugRouteImport } from './routes/produto.$slug'
-import { Route as GraosSlugRouteImport } from './routes/graos.$slug'
-import { Route as CategoriasSlugRouteImport } from './routes/categorias.$slug'
+import { Route as ProdutoSlugRouteImport } from './routes/produto/$slug'
+import { Route as GraosSlugRouteImport } from './routes/graos/$slug'
+import { Route as CategoriasSlugRouteImport } from './routes/categorias/$slug'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',

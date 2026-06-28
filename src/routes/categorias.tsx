@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useRouterState } from "@tanstack/react-router";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import { CategoryCard } from "@/components/site/CategoryCard";
 import { useReveal } from "@/hooks/use-reveal";
@@ -25,6 +25,13 @@ export const Route = createFileRoute("/categorias")({
 
 function CategoriasPage() {
   useReveal();
+  const routerState = useRouterState();
+  const isIndex = routerState.location.pathname === "/categorias";
+
+  return isIndex ? <CategoriasList /> : <Outlet />;
+}
+
+function CategoriasList() {
   return (
     <SiteShell>
       <PageHeader
