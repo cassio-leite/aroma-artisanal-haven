@@ -53,8 +53,6 @@ function CardapioPage() {
                 </div>
                 <Link
                   to="/categorias/$slug"
-                  as
-                  any
                   params={{ slug: cat.slug }}
                   className="hidden sm:inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition"
                 >

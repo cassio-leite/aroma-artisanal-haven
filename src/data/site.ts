@@ -1,11 +1,19 @@
-import productCappuccino from "@/assets/product-cappuccino.jpg";
-import productCake from "@/assets/product-cake.jpg";
-import productDessert from "@/assets/product-dessert.jpg";
+import productCappuccino from "@/assets/product-cappuccino-aurora.jpg";
+import productCake from "@/assets/product-brownie-cacau.jpg";
+import productDessert from "@/assets/product-torta-doce-leite.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
+import gallery7 from "@/assets/gallery-7.jpg";
+import gallery8 from "@/assets/gallery-8.jpg";
+import gallery9 from "@/assets/gallery-9.jpg";
+import gallery10 from "@/assets/gallery-10.jpg";
+import gallery11 from "@/assets/gallery-11.jpg";
+import gallery12 from "@/assets/gallery-12.jpg";
+import gallery13 from "@/assets/gallery-13.jpg";
 
 export type Product = {
   slug: string;
@@ -123,11 +131,29 @@ export const products: Product[] = [
     tag: "Estação",
     price: "R$ 26",
     category: "sobremesas",
-    image: gallery5,
+    image: gallery11,
     shortDesc: "Cream cheese aveludado e calda quente de frutas vermelhas frescas.",
     longDesc:
       "Cream cheese aveludado em base de biscoito integral, finalizado com calda quente de frutas vermelhas frescas da estação. Equilíbrio perfeito entre o doce e o ácido.",
     ingredients: ["Cream cheese", "Frutas vermelhas", "Biscoito integral", "Açúcar de baunilha"],
+  },
+  {
+    slug: "pudim-artesanal",
+    name: "Pudim Artesanal",
+    tag: "Clássico da Casa",
+    price: "18,90",
+    category: "sobremesas",
+    image: gallery12,
+    shortDesc: "Pudim de leite condensado com calda de caramelo preparada artesanalmente.",
+    longDesc:
+      "Nosso pudim artesanal é preparado diariamente com leite condensado, leite fresco e ovos selecionados, assado lentamente em banho-maria para alcançar uma textura extremamente cremosa. Finalizado com uma generosa calda de caramelo dourado, é uma sobremesa clássica que desperta memórias e combina perfeitamente com um café espresso ou cappuccino.",
+    ingredients: [
+      "Leite condensado",
+      "Leite integral",
+      "Ovos",
+      "Açúcar caramelizado",
+      "Baunilha"
+    ],
   },
   // Bolos
   {
@@ -154,30 +180,68 @@ export const products: Product[] = [
       "Tradição em forma de bolo. Fubá fino, leite de coco e queijo minas frescal formam um miolo cremoso por baixo de uma casca dourada e levemente crocante. Perfeito com café preto.",
     ingredients: ["Fubá", "Leite de coco", "Queijo minas", "Ovos", "Manteiga"],
   },
+  {
+    slug: "fatia-de-morango-da-casa",
+    name: "Fatia de Morango da Casa",
+    tag: "Receita Artesanal",
+    price: "24,90",
+    category: "bolos",
+    image: gallery13,
+    shortDesc: "Fatia de bolo artesanal recheada com creme e morangos frescos.",
+    longDesc:
+      "Uma combinação clássica de massa leve e fofinha, creme aveludado e morangos frescos cuidadosamente selecionados. Finalizado com chantilly delicado e um toque de açúcar de confeiteiro, é uma sobremesa preparada diariamente para proporcionar uma experiência leve, elegante e perfeita para harmonizar com nossos cafés especiais.",
+    ingredients: [
+      "Pão de ló",
+      "Creme artesanal",
+      "Chantilly",
+      "Morangos frescos",
+      "Geleia de morango",
+      "Açúcar de confeiteiro"
+    ],
+  },
   // Presentes
   {
-    slug: "kit-amanhecer",
-    name: "Kit Amanhecer",
+    slug: "kit-café-da-manha-especial",
+    name: "Kit Café da Manhã Especial",
     tag: "Sob encomenda",
     price: "R$ 148",
     category: "presentes",
     image: gallery5,
-    shortDesc: "Caixa com grãos da casa, caneca artesanal e bolo individual.",
+    shortDesc: "Uma seleção especial com café, doces artesanais e itens exclusivos para presentear.",
     longDesc:
-      "Uma caixa pensada para começar o dia. Inclui 250g de grãos da casa, uma caneca de cerâmica artesanal feita por ceramistas locais e um bolo individual à sua escolha. Embalagem em madeira reaproveitada.",
-    ingredients: ["Grãos 250g", "Caneca cerâmica", "Bolo individual", "Embalagem madeira"],
+      "Criado para transformar qualquer manhã em uma ocasião especial, este kit reúne café especial, acompanhamentos artesanais e uma apresentação elegante. Perfeito para celebrar aniversários, datas comemorativas ou simplesmente demonstrar carinho com um presente repleto de sabor e aconchego.",
+    ingredients: [
+      "Café especial 250 g", "Caneca exclusiva", "Croissant artesanal", "Cookies amanteigados", "Geleia artesanal", "Cartão personalizado",
+    ],
   },
   {
-    slug: "cesta-aurora",
-    name: "Cesta Aurora",
-    tag: "Especial",
+    slug: "kit-cappuccino-gourmet",
+    name: "Kit Cappuccino Gourmet",
+    tag: "Sob encomenda",
     price: "R$ 248",
     category: "presentes",
     image: gallery4,
-    shortDesc: "Seleção completa de cafés, biscoitos e doces para presentear.",
+    shortDesc: "Uma experiência completa de cappuccino com ingredientes premium e acessórios exclusivos.",
     longDesc:
-      "Nossa cesta mais completa. Três variedades de grãos, biscoitos amanteigados, doces da casa e uma pequena torta. Montada à mão e entregue com cartão personalizado.",
-    ingredients: ["3 cafés", "Biscoitos", "Doces da casa", "Mini torta", "Cartão personalizado"],
+      "Perfeito para quem aprecia um cappuccino cremoso e cheio de personalidade, este kit reúne ingredientes selecionados e acessórios exclusivos para transformar cada preparo em um momento especial. Uma combinação elegante de sabores e apresentação refinada, ideal para presentear ou desfrutar em casa.",
+    ingredients: ["Cappuccino premium", "Mini marshmallows", "Chocolate belga", "Xícara de porcelana", "Colher dourada"],
+  },
+  {
+    slug: "kit-coffee-lover",
+    name: "Kit Coffee Lover",
+    tag: "Edição Especial",
+    price: "R$ 189",
+    category: "presentes",
+    image: gallery6,
+    shortDesc: "Uma seleção de cafés especiais e acessórios para uma experiência completa de degustação.",
+    longDesc:
+      "Criado para os apaixonados por café, o Kit Coffee Lover reúne grãos de diferentes origens, acessórios selecionados e uma apresentação sofisticada. Ideal para explorar novos aromas, descobrir notas sensoriais e transformar cada preparo em um momento especial.",
+    ingredients: [
+      "3 cafés especiais de diferentes origens",
+      "Cartão com notas sensoriais",
+      "Drip Coffee",
+      "Caneca exclusiva"
+    ],
   },
 ];
 
@@ -192,7 +256,7 @@ export const beans: Bean[] = [
       "Doçura natural e corpo médio. O grão que serve de base aos nossos cappuccinos assinatura.",
     longDesc:
       "Cultivado entre 1.200 e 1.450 metros de altitude por uma cooperativa familiar com quem trabalhamos há mais de oito anos. Pós-colheita natural, secagem em terreiro suspenso e torra média desenvolvida na casa. Resulta em uma bebida limpa, doce e com retrogosto longo de cacau.",
-    image: gallery4,
+    image: gallery7,
   },
   {
     slug: "chapada-diamantina",
@@ -203,7 +267,7 @@ export const beans: Bean[] = [
     shortDesc: "Notas frutadas e acidez vibrante. Brilha em métodos coados como V60 e Chemex.",
     longDesc:
       "Grãos arábica de variedade Catuaí Amarelo, processo cereja descascado. A altitude e o clima seco da Chapada favorecem uma maturação lenta dos frutos, traduzida em uma xícara complexa, frutada e com acidez cítrica equilibrada por notas de mel.",
-    image: gallery2,
+    image: gallery8,
   },
   {
     slug: "huila-colombia",
@@ -214,7 +278,7 @@ export const beans: Bean[] = [
     shortDesc: "Acidez delicada e perfume floral. Um clássico colombiano para apreciar puro.",
     longDesc:
       "Microlote da região de Pitalito, cultivado a mais de 1.700m. Processo lavado tradicional, secagem ao sol em camas africanas. Resulta em uma xícara doce, floral e com final limpo de frutas vermelhas frescas.",
-    image: gallery3,
+    image: gallery9,
   },
   {
     slug: "sidamo-etiopia",
@@ -225,7 +289,7 @@ export const beans: Bean[] = [
     shortDesc: "Leve, aromático e elegante. Para quem aprecia cafés delicados e perfumados.",
     longDesc:
       "Da terra natal do café, este grão de altitude elevada (acima de 1.900m) e processo natural revela toda a complexidade aromática típica da Etiópia. Corpo leve, acidez brilhante e final longo perfumado.",
-    image: gallery1,
+    image: gallery10,
   },
 ];
 
