@@ -55,11 +55,11 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden border-t border-border/60 transition-[max-height,opacity] duration-500 ease-out ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden overflow-hidden border-b border-border/60 absolute top-full left-0 right-0 transition-[max-height,opacity] duration-500 ease-out ${
+          open ? "max-h-[calc(100vh-80px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
-        <nav className="px-4 sm:px-6 py-6 flex flex-col gap-1 bg-background/95">
+        <nav className="px-4 sm:px-6 py-6 flex flex-col gap-1 bg-background">
           {navLinks.map((l) => (
             <Link
               key={l.to}
