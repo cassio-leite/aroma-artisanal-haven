@@ -20,6 +20,13 @@ import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
+import galleryCafe1 from "@/assets/gallery-cafe.jpg";
+import galleryCafe2 from "@/assets/gallery-cafe-2.jpg";
+import galleryCafe3 from "@/assets/gallery-cafe-3.jpg";
+import galleryCafe4 from "@/assets/gallery-cafe-4.jpg";
+import galleryCafe5 from "@/assets/gallery-cafe-5.jpg";
+import galleryCafe6 from "@/assets/gallery-cafe-6.jpg";
+import galleryCafe7 from "@/assets/gallery-cafe-7.jpg";
 
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -331,6 +338,16 @@ function Beans() {
 
 /* ───────────────── Galeria ───────────────── */
 function Gallery() {
+  const galleryItems = [
+    { src: galleryCafe1, alt: 'Interior da cafeteria', size: 'hero' },
+    { src: galleryCafe3, alt: 'Detalhe do café', size: 'medium' },
+    { src: galleryCafe5, alt: 'Ambiente aconchegante', size: 'medium' },
+    { src: galleryCafe6, alt: 'Croissant', size: 'small' },
+    { src: galleryCafe2, alt: 'Café na mesa', size: 'small' },
+    { src: galleryCafe4, alt: 'Grãos de café', size: 'small' },
+    { src: galleryCafe7, alt: 'Decoração', size: 'small' },
+  ];
+
   return (
     <section id="galeria" className="py-24 md:py-36 bg-secondary/40">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -344,47 +361,26 @@ function Gallery() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-          <div className="reveal image-zoom rounded-3xl overflow-hidden row-span-2 col-span-2 md:col-span-2 aspect-square md:aspect-auto">
-            <img
-              src={gallery1}
-              alt="Interior da cafeteria"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img
-              src={gallery2}
-              alt="Croissant e espresso"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img
-              src={gallery4}
-              alt="Grãos de café"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img
-              src={gallery3}
-              alt="Mesa do café com plantas"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="reveal image-zoom rounded-3xl overflow-hidden aspect-[5/4]">
-            <img
-              src={gallery5}
-              alt="Presente artesanal"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {galleryItems.map((item, index) => (
+            <div
+              key={index}
+              className={`reveal rounded-3xl overflow-hidden ${
+                item.size === 'hero'
+                  ? 'md:col-span-2 md:row-span-2 aspect-square md:aspect-auto'
+                  : item.size === 'medium'
+                  ? 'md:col-span-2 aspect-[2/1] md:aspect-auto'
+                  : 'aspect-square'
+              }`}
+            >
+              <img
+                src={item.src}
+                alt={item.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
