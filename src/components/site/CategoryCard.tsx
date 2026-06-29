@@ -9,7 +9,7 @@ export function CategoryCard({ category }: { category: Category }) {
     <Link
       to="/categorias/$slug"
       params={{ slug: category.slug }}
-      className="group relative image-zoom rounded-3xl overflow-hidden aspect-[3/4] block hover-lift transition-shadow hover:shadow-xl"
+      className="group relative image-zoom rounded-3xl overflow-hidden aspect-[3/4] block hover-lift border border-transparent hover:border-primary/30 transition-all"
     >
       <img
         src={category.image}

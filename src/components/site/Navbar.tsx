@@ -36,7 +36,7 @@ export function Navbar() {
           <Link
             to="/"
             hash="localizacao"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5 active:scale-[0.98]"
           >
             Reservar mesa
           </Link>
@@ -46,7 +46,7 @@ export function Navbar() {
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden grid place-items-center w-10 h-10 rounded-full border border-border/60 text-foreground hover:bg-secondary/60 transition"
+            className="md:hidden grid place-items-center w-10 h-10 rounded-full border border-border/60 text-foreground hover:bg-secondary/60 transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5 active:scale-[0.98]"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>

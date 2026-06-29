@@ -7,7 +7,7 @@ export function ProductCard({ product }: { product: Product }) {
     <Link
       to="/produto/$slug"
       params={{ slug: product.slug }}
-      className="group hover-lift cursor-pointer transition-all hover:bg-secondary/60 hover:shadow-lg bg-card rounded-3xl overflow-hidden border border-border/60 shadow-[0_1px_0_rgba(0,0,0,0.02)] block"
+      className="group hover-lift cursor-pointer transition-all hover:bg-secondary/60 bg-card rounded-3xl overflow-hidden border border-border/60 hover:border-primary/30 shadow-[0_1px_0_rgba(0,0,0,0.02)] block"
     >
       <div className="image-zoom aspect-[4/5] relative">
         <img

@@ -7,7 +7,7 @@ export function BeanCard({ bean }: { bean: Bean }) {
     <Link
       to="/graos/$slug"
       params={{ slug: bean.slug }}
-      className="group hover-lift bg-card rounded-3xl overflow-hidden border border-border/60 block transition-shadow hover:shadow-xl"
+      className="group hover-lift bg-card rounded-3xl overflow-hidden border border-border/60 hover:border-primary/30 block transition-shadow"
     >
       <div className="image-zoom aspect-[5/4]">
         <img
