@@ -109,7 +109,8 @@ function ProductPage() {
               hash="localizacao"
               className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-medium hover:opacity-90 transition"
             >
-              Provar na cafeteria <ArrowRight className="w-4 h-4" />
+              {product.category === 'presentes' ? 'Encomendar' : 'Provar na cafeteria'}{' '}
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/cardapio"

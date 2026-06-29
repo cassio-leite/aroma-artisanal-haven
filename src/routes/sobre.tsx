@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Leaf, Heart, Users } from "lucide-react";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import { useReveal } from "@/hooks/use-reveal";
-import storyImg from "@/assets/story.jpg";
+import storyImg from "@/assets/story-cafe.jpg";
 
 export const Route = createFileRoute("/sobre")({
   component: SobrePage,

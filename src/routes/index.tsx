@@ -14,13 +14,8 @@ import {
 } from "lucide-react";
 
 import heroImg from "@/assets/hero-cappuccino.jpg";
-import storyImg from "@/assets/story.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import galleryCafe1 from "@/assets/gallery-cafe.jpg";
+import storyImg from "@/assets/story-cafe.jpg";
+import galleryCafe1 from "@/assets/gallery-cafe-1.jpg";
 import galleryCafe2 from "@/assets/gallery-cafe-2.jpg";
 import galleryCafe3 from "@/assets/gallery-cafe-3.jpg";
 import galleryCafe4 from "@/assets/gallery-cafe-4.jpg";
@@ -339,13 +334,13 @@ function Beans() {
 /* ───────────────── Galeria ───────────────── */
 function Gallery() {
   const galleryItems = [
-    { src: galleryCafe1, alt: 'Interior da cafeteria', size: 'hero' },
-    { src: galleryCafe3, alt: 'Detalhe do café', size: 'medium' },
-    { src: galleryCafe5, alt: 'Ambiente aconchegante', size: 'medium' },
-    { src: galleryCafe6, alt: 'Croissant', size: 'small' },
-    { src: galleryCafe2, alt: 'Café na mesa', size: 'small' },
-    { src: galleryCafe4, alt: 'Grãos de café', size: 'small' },
-    { src: galleryCafe7, alt: 'Decoração', size: 'small' },
+    { src: galleryCafe1, alt: 'Pessoas conversando enquanto tomam café', size: 'hero' },
+    { src: galleryCafe3, alt: 'Prateleiras de cafés e decoração', size: 'medium' },
+    { src: galleryCafe5, alt: 'Close da máquina de espresso', size: 'medium' },
+    { src: galleryCafe6, alt: 'Barista preparando latte art', size: 'small' },
+    { src: galleryCafe2, alt: 'Mesa com cappuccino e sobremesa', size: 'small' },
+    { src: galleryCafe4, alt: 'Close de plantas e iluminação', size: 'small' },
+    { src: galleryCafe7, alt: 'Mesa com cappuccino e sobremesa', size: 'small' },
   ];
 
   return (
@@ -554,7 +549,7 @@ function FinalCTA() {
                 href="https://wa.me/5548999990000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-cream text-espresso px-7 py-3.5 font-medium hover:bg-cappuccino transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-leaf text-white px-7 py-3.5 font-medium hover:bg-leaf/90 transition-colors"
               >
                 Reservar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
