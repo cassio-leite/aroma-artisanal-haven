@@ -147,13 +147,7 @@ export const products: Product[] = [
     shortDesc: "Pudim de leite condensado com calda de caramelo preparada artesanalmente.",
     longDesc:
       "Nosso pudim artesanal é preparado diariamente com leite condensado, leite fresco e ovos selecionados, assado lentamente em banho-maria para alcançar uma textura extremamente cremosa. Finalizado com uma generosa calda de caramelo dourado, é uma sobremesa clássica que desperta memórias e combina perfeitamente com um café espresso ou cappuccino.",
-    ingredients: [
-      "Leite condensado",
-      "Leite integral",
-      "Ovos",
-      "Açúcar caramelizado",
-      "Baunilha"
-    ],
+    ingredients: ["Leite condensado", "Leite integral", "Ovos", "Açúcar caramelizado", "Baunilha"],
   },
   // Bolos
   {
@@ -196,7 +190,7 @@ export const products: Product[] = [
       "Chantilly",
       "Morangos frescos",
       "Geleia de morango",
-      "Açúcar de confeiteiro"
+      "Açúcar de confeiteiro",
     ],
   },
   // Presentes
@@ -207,11 +201,17 @@ export const products: Product[] = [
     price: "R$ 148",
     category: "presentes",
     image: gallery5,
-    shortDesc: "Uma seleção especial com café, doces artesanais e itens exclusivos para presentear.",
+    shortDesc:
+      "Uma seleção especial com café, doces artesanais e itens exclusivos para presentear.",
     longDesc:
       "Criado para transformar qualquer manhã em uma ocasião especial, este kit reúne café especial, acompanhamentos artesanais e uma apresentação elegante. Perfeito para celebrar aniversários, datas comemorativas ou simplesmente demonstrar carinho com um presente repleto de sabor e aconchego.",
     ingredients: [
-      "Café especial 250 g", "Caneca exclusiva", "Croissant artesanal", "Cookies amanteigados", "Geleia artesanal", "Cartão personalizado",
+      "Café especial 250 g",
+      "Caneca exclusiva",
+      "Croissant artesanal",
+      "Cookies amanteigados",
+      "Geleia artesanal",
+      "Cartão personalizado",
     ],
   },
   {
@@ -221,10 +221,17 @@ export const products: Product[] = [
     price: "R$ 248",
     category: "presentes",
     image: gallery4,
-    shortDesc: "Uma experiência completa de cappuccino com ingredientes premium e acessórios exclusivos.",
+    shortDesc:
+      "Uma experiência completa de cappuccino com ingredientes premium e acessórios exclusivos.",
     longDesc:
       "Perfeito para quem aprecia um cappuccino cremoso e cheio de personalidade, este kit reúne ingredientes selecionados e acessórios exclusivos para transformar cada preparo em um momento especial. Uma combinação elegante de sabores e apresentação refinada, ideal para presentear ou desfrutar em casa.",
-    ingredients: ["Cappuccino premium", "Mini marshmallows", "Chocolate belga", "Xícara de porcelana", "Colher dourada"],
+    ingredients: [
+      "Cappuccino premium",
+      "Mini marshmallows",
+      "Chocolate belga",
+      "Xícara de porcelana",
+      "Colher dourada",
+    ],
   },
   {
     slug: "kit-coffee-lover",
@@ -233,14 +240,15 @@ export const products: Product[] = [
     price: "R$ 189",
     category: "presentes",
     image: gallery6,
-    shortDesc: "Uma seleção de cafés especiais e acessórios para uma experiência completa de degustação.",
+    shortDesc:
+      "Uma seleção de cafés especiais e acessórios para uma experiência completa de degustação.",
     longDesc:
       "Criado para os apaixonados por café, o Kit Coffee Lover reúne grãos de diferentes origens, acessórios selecionados e uma apresentação sofisticada. Ideal para explorar novos aromas, descobrir notas sensoriais e transformar cada preparo em um momento especial.",
     ingredients: [
       "3 cafés especiais de diferentes origens",
       "Cartão com notas sensoriais",
       "Drip Coffee",
-      "Caneca exclusiva"
+      "Caneca exclusiva",
     ],
   },
 ];

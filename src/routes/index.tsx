@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { useReveal } from "@/hooks/use-reveal";
 import {
   Coffee,
@@ -73,14 +75,27 @@ function Landing() {
 
 /* ───────────────── Hero ───────────────── */
 function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const shouldReduceMotion = useReducedMotion();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   return (
-    <section className="relative pt-16 md:pt-20 min-h-[100svh] flex items-end overflow-hidden">
-      <img
+    <section
+      ref={ref}
+      className="relative pt-16 md:pt-20 min-h-[100svh] flex items-end overflow-hidden"
+    >
+      <motion.img
+        style={{ y: shouldReduceMotion ? 0 : y }}
         src={heroImg}
         alt="Cappuccino artesanal em ambiente acolhedor"
         width={1600}
         height={1808}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-[120%] object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/40 to-espresso/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-espresso/60 via-transparent to-transparent" />
@@ -334,13 +349,13 @@ function Beans() {
 /* ───────────────── Galeria ───────────────── */
 function Gallery() {
   const galleryItems = [
-    { src: galleryCafe1, alt: 'Pessoas conversando enquanto tomam café', size: 'hero' },
-    { src: galleryCafe3, alt: 'Prateleiras de cafés e decoração', size: 'medium' },
-    { src: galleryCafe5, alt: 'Close da máquina de espresso', size: 'medium' },
-    { src: galleryCafe6, alt: 'Barista preparando latte art', size: 'small' },
-    { src: galleryCafe2, alt: 'Mesa com cappuccino e sobremesa', size: 'small' },
-    { src: galleryCafe4, alt: 'Close de plantas e iluminação', size: 'small' },
-    { src: galleryCafe7, alt: 'Mesa com cappuccino e sobremesa', size: 'small' },
+    { src: galleryCafe1, alt: "Pessoas conversando enquanto tomam café", size: "hero" },
+    { src: galleryCafe3, alt: "Prateleiras de cafés e decoração", size: "medium" },
+    { src: galleryCafe5, alt: "Close da máquina de espresso", size: "medium" },
+    { src: galleryCafe6, alt: "Barista preparando latte art", size: "small" },
+    { src: galleryCafe2, alt: "Mesa com cappuccino e sobremesa", size: "small" },
+    { src: galleryCafe4, alt: "Close de plantas e iluminação", size: "small" },
+    { src: galleryCafe7, alt: "Mesa com cappuccino e sobremesa", size: "small" },
   ];
 
   return (
@@ -361,11 +376,11 @@ function Gallery() {
             <div
               key={index}
               className={`reveal rounded-3xl overflow-hidden ${
-                item.size === 'hero'
-                  ? 'md:col-span-2 md:row-span-2 aspect-square md:aspect-auto'
-                  : item.size === 'medium'
-                  ? 'md:col-span-2 aspect-[2/1] md:aspect-auto'
-                  : 'aspect-square'
+                item.size === "hero"
+                  ? "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto"
+                  : item.size === "medium"
+                    ? "md:col-span-2 aspect-[2/1] md:aspect-auto"
+                    : "aspect-square"
               }`}
             >
               <img
