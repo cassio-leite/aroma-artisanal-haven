@@ -188,6 +188,7 @@ function Story() {
           <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-leaf mb-4">
             <span className="w-8 h-px bg-leaf" />
             Nossa história
+            
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-8">
             Quinze anos torrando café <em className="italic">grão a grão</em>.
