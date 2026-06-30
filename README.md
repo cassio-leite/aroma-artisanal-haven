@@ -6,8 +6,8 @@
 
 ## 📷 Preview
 
-![Mockup Desktop e Mobile](./assets/doc-preview.gif)
-![Mockup Desktop e Mobile](./assets/doc-preview-mobile.gif)
+![Mockup Desktop e Mobile](.src/assets/doc-preview.gif)
+![Mockup Desktop e Mobile](.src/assets/doc-preview-mobile.gif)
 
 ---
 
